@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/stylesheet.css">
+    <title>Qhali TTS</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Quechua Text-to-Speech</h1>
+    <form id="text-to-speech-form">
+        <label for="text">Enter your text:</label><br>
+        <textarea id="text" name="text" rows="4" cols="50"></textarea><br>
+        <br>
+        <input type="submit" value="Submit">
+        <br>
+        <br>
+    </form>
+    <div id="audio-container"></div>
+    <script>
+        $(document).ready(function() {
+            $('#text-to-speech-form').submit(function(event) { 
+                event.preventDefault()
+                var formData = $(this).serialize()
+                $.ajax({
+                    url: '/text-to-speech/',
+                    type: 'POST',
+                    data: formData,
+                    success: function(response) {
+                        $('#audio-container').html(response.audio)
+                    }
+                })
+            })
+        })
+    </script>
+</body>

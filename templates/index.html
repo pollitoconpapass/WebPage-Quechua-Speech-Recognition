@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/stylesheet.css">
+    <title>Qhali</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Welcome to Qhali Quechua Speech Services</h1>
+    <br>
+    <br>
+    <ul>
+        <h3>For Text-to-Speech Recognition: </h3>
+        <a class="nav-link" aria-current="page" href="{{url_for('tts')}}">Text to Speech</a>
+        <br>
+        <br>
+        <br>
+        <h3>For Speech-to-Text Recognition: </h3>
+        <a class="nav-link" aria-current="page" href="{{url_for('stt')}}">Speech to Text</a>
+    </ul>
+</body>
+</html>
