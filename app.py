@@ -1,6 +1,5 @@
 from flask import Flask, request, render_template, jsonify
 from transformers import pipeline, Wav2Vec2ForCTC, AutoProcessor
-from huggingface_hub import InferenceClient
 import scipy.io.wavfile
 import torchaudio
 import subprocess
@@ -11,11 +10,6 @@ import time
 
 
 app = Flask(__name__)
-
-client = InferenceClient(
-    "https://api-inference.huggingface.co/models/facebook/mms-tts-quz",
-    token="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"
-)
 
 # === USAGE OF GPU ===
 print(torch.backends.mps.is_available())
